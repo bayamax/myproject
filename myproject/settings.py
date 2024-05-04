@@ -145,3 +145,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 ALLOWED_HOSTS = ['cloud-projects-a39b22b65477.herokuapp.com']
 
+
