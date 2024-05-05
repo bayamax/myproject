@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>サインアップ</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            background-color: #007bff; /* ヘッダーの背景色 */
+            color: white;
+            padding: 10px 20px; /* パディングでテキストの周りにスペースを作る */
+            text-align: left; /* タイトルを左寄せ */
+        }
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        h2 {
+            text-align: center;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        button {
+            width: 100%;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .text-center {
+            text-align: center;
+        }
+        input[type='text'], input[type='password'], input[type='email'] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        cloud project
+    </div>
+    <div class="container">
+        <h2>サインアップ</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div>
+                {{ form.username.label_tag }}<br>
+                {{ form.username }}
+            </div>
+            <div>
+                {{ form.email.label_tag }}<br>
+                {{ form.email }}
+            </div>
+            <div>
+                {{ form.password1.label_tag }}<br>
+                {{ form.password1 }}
+            </div>
+            <div>
+                {{ form.password2.label_tag }}<br>
+                {{ form.password2 }}
+            </div>
+            <button type="submit">登録</button>
+        </form>
+        <div class="text-center">
+            既にアカウントを持っていますか？ <a href="{% url 'login' %}">サインイン</a>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.9/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

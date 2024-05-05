@@ -1,0 +1,14 @@
+/* 全ページの背景色を設定 */
+body {
+    background-color: #f4f4f8; /* 例として薄いグレー色を指定 */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* ページトップのロゴ画像配置 */
+.header-logo {
+    width: 100px; /* ロゴのサイズ調整 */
+    height: auto;
+    padding: 10px; /* パディングで少し間を開ける */
+}

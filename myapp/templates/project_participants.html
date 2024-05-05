@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ project.title }} - 参加者リスト</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .navbar {
+            background-color: #007bff; /* 背景色を統一 */
+            color: white;
+        }
+        .container {
+            max-width: 960px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .header-title {
+            text-align: center;
+            margin-top: 20px;
+            color: white; /* タイトルの色を調整 */
+        }
+        .btn-primary, .btn-secondary {
+            margin-top: 10px;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .list-group-item a {
+            color: #007bff; /* リンク色をBootstrapのプライマリーカラーに合わせる */
+            text-decoration: none; /* アンダーラインを削除 */
+        }
+        .list-group-item a:hover {
+            text-decoration: underline; /* ホバー時にアンダーラインを表示 */
+        }
+    </style>
+</head>
+<body>
+    {% load static %}
+    <nav class="navbar navbar-expand-md navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'project_list' %}">{{ project.title }}</a>
+            <div class="account-info ml-auto">
+                {% if user.is_authenticated %}
+                    <p class="mb-0 text-white">こんにちは, {{ user.username }}!</p>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <ul class="list-group">
+            {% for participant_data in participants_data %}
+                <li class="list-group-item">
+                    <a href="{% url 'account' username=participant_data.participant.username %}">
+                        {{ participant_data.participant.username }}
+                    </a> - 達成マイルストーンポイント: {{ participant_data.completed_milestones_points }}
+                </li>
+            {% endfor %}
+        </ul>
+
+        <a href="{% url 'project_detail' project.id %}" class="btn btn-primary mt-4">プロジェクト詳細に戻る</a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.9/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

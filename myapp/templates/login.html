@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+        .full-height {
+            height: 100%;
+        }
+        .bg-blue {
+            background-color: #007bff; /* Bootstrapのプライマリーカラー */
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+        .welcome-message {
+            font-size: 32px; /* 大きいタイトルのフォントサイズ */
+            margin-bottom: 10px; /* サブテキストまでの距離 */
+        }
+        .sub-message {
+            font-size: 24px; /* サブテキストのフォントサイズ */
+        }
+        .login-form {
+            padding-top: 20px; /* フォームまでのスペース */
+        }
+    </style>
+</head>
+<body>
+    <div class="full-height bg-blue">
+        <div class="welcome-message">ようこそ</div>
+        <div class="sub-message">楽しいみんなが待っています</div>
+    </div>
+    <div class="container login-form">
+        <h2>Login</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.9/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
