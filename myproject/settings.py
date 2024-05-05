@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-n$9o(w)vb-4d*ly8@3jgs^0h7e)ey90)5i@2(4nko8pbjy3(j=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['cloud-projects-a39b22b65477.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['cloud-projects-b04a963eb8c4.herokuapp.com']
 
 AUTH_USER_MODEL = 'myapp.CustomUser'
 
@@ -74,7 +74,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'myproject.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
@@ -87,6 +86,7 @@ DATABASES = {
     )
 }
 
+#DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql'
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -137,3 +137,4 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
